@@ -7,15 +7,28 @@ const primaryDarkColor = "#9E3B0D";
 const secondaryDarkColor = "#009E8E";
 const secondaryLightColor = "#26EBD6";
 
+export const Left = styled.div`
+    padding: 30px;
+    width: 50%;
+    min-width: 300px;
+`;
+
+export const Right = styled.div`
+    padding: 30px;
+    width: 50%;
+    min-width: 300px;
+    padding-top: 80px;
+`;
+
 export const Container = styled.div`
-    display: flexbox;
-    width: 70%;
-    margin: auto;
-    padding: 100px;
+    display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    padding: 50px;
+    flex-wrap: wrap;
+    width: 100%;
 
     h1 {
-        margin-top: 40px;
         font-size: 30px;
         font-weight: bold;
     }
@@ -25,20 +38,19 @@ export const Container = styled.div`
         margin-bottom: 10px;
     }
 
-    div {
-        min-width: 50%;
-        padding: 0px 10px;
+    @media (max-width: 768px) {
+        padding: 40px 20px;
+        ${Left}, ${Right} {
+            padding: 0px;
+            width: 100%;
+        }
     }
 `;
 
 export const InputWrapper = styled.div`
-    margin-bottom: 30px;
-    display: flex;
-
-    div {
-        min-width: auto;
-        padding: 0px;
-    }
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 20px;
 
     label {
         font-size: 20px;
@@ -46,10 +58,10 @@ export const InputWrapper = styled.div`
     }
 
     input {
+        display: block;
+        width: 100%;
         font-size: 32px;
         font-weight: bolder; 
-        display: block;
-        width: 250px;
         border: none;
         padding: 10px 0px;
         margin: none;
@@ -57,8 +69,14 @@ export const InputWrapper = styled.div`
     }
 `;
 
+export const ControllWrapper = styled.div`
+    margin-bottom: 30px;
+    display: flex;
+    padding: 10px 0px;
+    justify-content: space-between;
+`;
+
 export const RoundButton = styled.button`
-    padding: 10px;
     border-radius: 50%;
     background-color: ${secondaryDarkColor};
     border: none;
@@ -69,9 +87,11 @@ export const RoundButton = styled.button`
     font-weight: bolder;
     font-size: 30px;
     text-align:center;
+    cursor: pointer;
 `;
 
 export const Buttons = styled.div`
+    display: inline-flex;
     margin-top: 20px;
     ${RoundButton} {
         &:first-child {
